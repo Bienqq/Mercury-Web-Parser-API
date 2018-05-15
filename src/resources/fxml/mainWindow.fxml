@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="904.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+   <children>
+      <VBox alignment="CENTER" layoutX="53.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="203.0" prefWidth="798.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="798.0">
+               <children>
+                  <TextField fx:id="addressTextField" alignment="BOTTOM_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="750.0" text="https://">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="280.0" text="Address:">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <TextField fx:id="keyTextField" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="750.0">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="280.0" text="Key:">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <CheckBox alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#onCheckBoxSelected" prefHeight="12.0" prefWidth="177.0" text="Use default key">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </CheckBox>
+            <VBox alignment="CENTER" prefHeight="44.0" prefWidth="798.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#onParseButtonClicked" prefHeight="43.0" prefWidth="165.0" stylesheets="@../styles/style.css" text="Parse website">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox alignment="BOTTOM_CENTER" layoutX="32.0" layoutY="206.0" prefHeight="447.0" prefWidth="840.0">
+         <children>
+            <TabPane prefHeight="154.0" prefWidth="840.0" styleClass=".tab-pane" stylesheets="@../styles/style.css" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Last Request">
+                     <content>
+                        <TextArea fx:id="lastRequestTextArea" editable="false" focusTraversable="false" prefHeight="55.0" prefWidth="840.0" styleClass="text-area" stylesheets="@../styles/style.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </TextArea>
+                     </content>
+                </Tab>
+                <Tab text="History">
+                     <content>
+                        <TextArea fx:id="historyTextArea" editable="false" focusTraversable="false" prefHeight="70.0" prefWidth="840.0" styleClass="text-area" stylesheets="@../styles/style.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </TextArea>
+                     </content>
+                </Tab>
+              </tabs>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TabPane>
+            <Label prefHeight="67.0" prefWidth="840.0" text="Response:">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <TabPane prefHeight="290.0" prefWidth="840.0" styleClass=".tab-pane" stylesheets="@../styles/style.css" tabClosingPolicy="UNAVAILABLE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <tabs>
+                  <Tab text="Page Info">
+                     <content>
+                        <TextArea fx:id="pageInfoTextArea" editable="false" focusTraversable="false" prefHeight="194.0" prefWidth="840.0" styleClass="text-area" stylesheets="@../styles/style.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </TextArea>
+                     </content>
+                  </Tab>
+                  <Tab text="Content">
+                     <content>
+                        <TextArea fx:id="contentTextArea" editable="false" focusTraversable="false" prefHeight="70.0" prefWidth="840.0" styleClass="text-area" stylesheets="@../styles/style.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </TextArea>
+                     </content>
+                  </Tab>
+                  <Tab text="Tag Statistics">
+                     <content>
+                        <VBox id="tag-statistics" prefHeight="200.0" prefWidth="100.0" stylesheets="@../styles/style.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <children>
+                              <BarChart fx:id="tagStatisticsChart" animated="false" styleClass="..\styles\style.css">
+                                <xAxis>
+                                  <CategoryAxis fx:id="categoryAxis" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="numberAxis" side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
